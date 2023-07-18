@@ -9,7 +9,22 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-
+const major_list = [
+  { image: require("./assets/course-bach-it.jpg"), major: "Information Technology" },
+  { image: require("./assets/course-bach-dsba.jpg"), major: "Data Science and Business Analytics" },
+  { image: require("./assets/course-bach-bit.jpg"), major: "Business Information Technology (International Program)" },
+  { image: require("./assets/course-bach-ait.jpg"), major: "Artfificial Intelligence Technology" },
+]
+const MajorCard = ({ pic, major }) => {
+  return (
+    <View style={style2.image}>
+      <Image source={pic} />
+      <TouchableOpacity style={style2.button}>
+        <Text>{major}</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
 const lab2_1 = () => {
   return (
     <View style={style1.container}>
@@ -51,29 +66,10 @@ const lab2_2 = () => {
         </View>
       </View>
       <ScrollView style={style2.scroll}>
-        <View style={style2.image}>
-          <Image source={require("./assets/course-bach-it.jpg")} />
-          <TouchableOpacity style={style2.button}>
-            <Text>Information Technology</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style2.image}>
-          <Image source={require("./assets/course-bach-dsba.jpg")} />
-          <TouchableOpacity style={style2.button}>
-            <Text>Data Science and Business Analytics</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style2.image}>
-          <Image source={require("./assets/course-bach-bit.jpg")} />
-          <TouchableOpacity style={style2.button}>
-            <Text>Business Information Technology (International Program)</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={style2.image}>
-          <Image source={require("./assets/course-bach-ait.jpg")} />
-          <TouchableOpacity style={style2.button}>
-            <Text>Artfificial Intelligence Technology</Text>
-          </TouchableOpacity>
+        <View>
+          {major_list.map((element,index) => (
+            <MajorCard key={index} pic={element.image} major={element.major} />
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -117,11 +113,8 @@ const style2 = StyleSheet.create({
     flex: 1,
   },
   top: {
-    zIndex: 10,
-    position: "absolute",
     flexDirection: "row",
     alignItems: "center",
-    top: 0,
     backgroundColor: "#ABD9E6",
   },
   scroll: {
@@ -133,7 +126,7 @@ const style2 = StyleSheet.create({
     height: undefined,
     resizeMode: "contain",
   },
-  button:{
+  button: {
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
