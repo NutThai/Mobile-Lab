@@ -9,6 +9,10 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
 const major_list = [
   { image: require("./assets/course-bach-it.jpg"), major: "Information Technology" },
   { image: require("./assets/course-bach-dsba.jpg"), major: "Data Science and Business Analytics" },
@@ -25,7 +29,11 @@ const MajorCard = ({ pic, major }) => {
     </View>
   )
 }
-const lab2_1 = () => {
+const Lab2_1 = props => {
+  const onPress = () => {
+    props.navigation.navigate('Lab2_2');
+  };
+  
   return (
     <View style={style1.container}>
       <View style={style1.top}>
@@ -35,7 +43,7 @@ const lab2_1 = () => {
       </View>
       <View style={style1.bot}>
         <View style={style1.button}>
-          <Button title="PROGRAMS" />
+          <Button title="PROGRAMS" onPress={onPress}/>
         </View>
 
         <View style={style1.button}>
@@ -45,7 +53,7 @@ const lab2_1 = () => {
     </View>
   );
 };
-const lab2_2 = () => {
+const Lab2_2 = () => {
   return (
     <SafeAreaView style={style2.container}>
       <View style={style2.top}>
@@ -138,4 +146,19 @@ const style2 = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-export default lab2_2;
+
+const App = () => {
+  //const
+  const Stack = createStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Lab2_1" component={Lab2_1} />
+        <Stack.Screen name="Lab2_2" component={Lab2_2} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
