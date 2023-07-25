@@ -31,7 +31,7 @@ const MajorCard = ({ pic, major }) => {
       </TouchableOpacity>
     </View>
 
-);
+  );
 };
 const Lab3_1 = () => {
   const [text, setText] = useState('')
@@ -44,16 +44,18 @@ const Lab3_1 = () => {
         value={text}
         onChangeText={setText}
       />
-      <Button
-        onPress={() => {
-          if (text) {
-            memo.push(text)
-            console.log(memo)
-            setText("")
-          }
-        }}
-        title="บันทึก"
-        color="#841584" />
+      <View style={style1.btn}>
+        <Button
+          onPress={() => {
+            if (text) {
+              memo.push(text)
+              console.log(memo)
+              setText("")
+            }
+          }}
+          title="บันทึก"
+        />
+      </View>
       <FlatList
         data={memo}
         renderItem={({ item }) => {
@@ -88,12 +90,11 @@ const Lab3_2 = () => {
 
         <FlatList
           data={major_list}
-          renderItem={({ item }) => (
+          renderItem={({ item }) =>
             <MajorCard pic={item.image} major={item.major} />
-          )}
+          }
           keyExtractor={item => item.major}
         />
-
       </View>
     </SafeAreaView>
   );
@@ -110,6 +111,9 @@ const style1 = StyleSheet.create({
     padding: 10,
     width: "70%",
     marginVertical: 10,
+  },
+  btn: {
+    width: "50%"
   },
   outputtext: {
     fontSize: 20,
