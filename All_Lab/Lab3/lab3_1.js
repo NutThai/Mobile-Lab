@@ -74,4 +74,4 @@ const style1 = StyleSheet.create({
         marginVertical: 10,
     },
 });
-export {Lab3_1}
+export {Lab3_1};

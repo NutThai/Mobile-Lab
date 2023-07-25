@@ -1,26 +1,17 @@
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity
-} from "react-native";
 import { Home } from "./home";
 import { Lab2_1 } from "./Lab2/lab2_1";
 import { Lab2_2 } from "./Lab2/lab2_2";
 import { Lab3_1 } from "./Lab3/lab3_1";
 import { Lab3_2 } from "./Lab3/lab3_2";
 
+import { all_lab } from "./home";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 const App = () => {
-  // const lab = ['Lab2_1', 'Lab2_2']
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>

@@ -66,4 +66,4 @@ const style1 = StyleSheet.create({
     marginBottom: 5,
   },
 });
-export { Lab2_1 };
+export {Lab2_1};
