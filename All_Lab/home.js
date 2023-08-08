@@ -8,7 +8,7 @@ import {
     View,
     FlatList
 } from "react-native";
-var all_lab = ["Lab2_1", "Lab2_2", "Lab3_1", "Lab3_2"]
+var all_lab = ["Lab2_1", "Lab2_2", "Lab3_1", "Lab3_2", "Lab4"]
 var header = [...new Set(all_lab.map(item => item.split('_')[0]))];
 
 console.log(header)

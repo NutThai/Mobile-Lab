@@ -4,6 +4,7 @@ import { Lab2_1 } from "./Lab2/lab2_1";
 import { Lab2_2 } from "./Lab2/lab2_2";
 import { Lab3_1 } from "./Lab3/lab3_1";
 import { Lab3_2 } from "./Lab3/lab3_2";
+import { Lab4 } from "./code_for_students/App";
 
 import { all_lab } from "./home";
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen name="Lab2_2" component={Lab2_2} />
         <Stack.Screen name="Lab3_1" component={Lab3_1} />
         <Stack.Screen name="Lab3_2" component={Lab3_2} />
+        <Stack.Screen name="Lab4" component={Lab4} />
       </Stack.Navigator>
     </NavigationContainer>
   );
