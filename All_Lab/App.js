@@ -4,13 +4,12 @@ import { Lab2_1 } from "./Lab2/lab2_1";
 import { Lab2_2 } from "./Lab2/lab2_2";
 import { Lab3_1 } from "./Lab3/lab3_1";
 import { Lab3_2 } from "./Lab3/lab3_2";
-import { Lab4 } from "./code_for_students/App";
+import { Lab4 } from "./Lab4/lab4";
 import { all_lab } from "./home";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
 const Stack = createStackNavigator();
