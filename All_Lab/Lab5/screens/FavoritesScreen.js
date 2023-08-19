@@ -1,24 +1,14 @@
 import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import MealList from "../components/MealList";
-import {
-  View,
-  Text,
-  Button,
-  StyleSheet,
-  Platform,
-  FlatList,
-} from "react-native";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 
-const CategoryMealsScreen = ({ route, navigation }) => {
-  const catId = route.params.pev
-  const displayedMeals = MEALS.filter(
-    (meal) => meal.categoryIds.indexOf(catId) >= 0
-  );
+const FavoritesScreen = ({ navigation }) => {
+  const favMeals = MEALS.filter((meal) => meal.id === "m1" || meal.id === "m2");
 
   return (
     <View style={styles.screen}>
-      <MealList listData={displayedMeals} navigation={navigation} />
+      <MealList listData={favMeals} navigation={navigation} />
     </View>
 
     // ส่วนนี้ <View>...</View>ใช้เพื่อการทดลอง และให้คอมเมนต์โค้ดส่วนนี้และเรียกใช้ <FlatList> ข้างบนแทน
@@ -34,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CategoryMealsScreen;
+export default FavoritesScreen;
