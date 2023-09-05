@@ -41,24 +41,24 @@ const MainNav = () => {
     const ani1 = useRef(new Animated.Value(1)).current
     const ani2 = useRef(new Animated.Value(0)).current
     const spin = ani2.interpolate({
-        inputRange: [0, 1],
-        outputRange: ["0deg", "360deg"]
+        inputRange: [0, 1, 2],
+        outputRange: ["0deg", "360deg","0deg"]
     })
     const sequence = () => {
 
         Animated.sequence([
             Animated.timing(ani1, {
                 toValue: 0,
-                duration: 3000,
+                duration: 500,
                 useNativeDriver: true,
             }),
             Animated.timing(ani1, {
                 toValue: 1,
-                duration: 3000,
+                duration: 500,
                 useNativeDriver: true,
             }),
             Animated.timing(ani2, {
-                toValue: 1,
+                toValue: 2,
                 duration: 3000,
                 useNativeDriver: true,
             })
@@ -90,14 +90,21 @@ const MainNav = () => {
     })
     const parallel = () => {
         Animated.parallel([
-            Animated.spring(ani3, {
+            Animated.sequence([
+                Animated.spring(ani3, {
                 toValue: 1,
                 friction: 1,
-                 useNativeDriver: true
-            }),
+                useNativeDriver: true,
+            }),Animated.spring(ani3, {
+                toValue: 0.3,
+                friction: 3,
+                useNativeDriver: true,
+            })
+            
+        ]),
             Animated.timing(ani4, {
                 toValue: 7,
-                duration: 2000,
+                duration: 1000,
                 useNativeDriver: true
             })
         ]).start(() => {
@@ -119,7 +126,7 @@ const MainNav = () => {
                     </Animated.Text>
                 </View>
                 <View style={{ width: "100%" }}>
-                    <Button title="Run Sequence" onPress={parallel} />
+                    <Button title="Run Parallel" onPress={parallel} />
                 </View>
             </View>
         )
